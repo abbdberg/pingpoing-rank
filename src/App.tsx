@@ -38,8 +38,8 @@ function App() {
 function BottomNav() {
   const navigate = useNavigate();
   const location = useLocation();
-  const handleChange = (event, newValue) => {
-    navigate(newValue);
+  const handleChange = (_, newValue:unknown)  => {
+    navigate(newValue as string);
   };
 
   return (

@@ -11,7 +11,7 @@ export const PlayerCmp = (props: PlayerProps) =>
 {
   const dispatch = useDispatch();
   // Example function to handle a change
-  const handleSliderChange = (event, newValue) => {
+  const handleSliderChange = (event:unknown, newValue:number) => {
     dispatch(updatePlayerScore({ name: props.name, points: newValue }));
   };
 return <>
@@ -26,7 +26,7 @@ return <>
   freeSolo
   options={['Player 1', 'Player X']} 
   value={props.name} 
-  onChange={(evt, value) => {
+  onChange={(_, value) => {
     console.log(value);
     props.updatePlayerName(value as string)
   }} 
