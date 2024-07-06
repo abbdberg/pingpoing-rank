@@ -38,10 +38,10 @@ function BottomNav() {
   return (
     <TabMenu
       model={[
-        { label: 'Match', icon: 'pi pi-fw pi-home', command: () => navigate('/') },
-        { label: 'Rank', icon: 'pi pi-fw pi-chart-line', command: () => navigate('/ranking') },
-        { label: 'Hist', icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
-        { label: 'User', icon: 'pi pi-fw pi-user', command: () => navigate('/user') },
+        { icon: 'pi pi-fw pi-home', command: () => navigate('/') },
+        {  icon: 'pi pi-fw pi-chart-line', command: () => navigate('/ranking') },
+        { icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
+        {  icon: 'pi pi-fw pi-user', command: () => navigate('/user') },
 
       ]}
     />

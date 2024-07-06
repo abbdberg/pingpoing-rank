@@ -18,6 +18,7 @@ export const Match = () => {
     <PlayerCmp {...player2} updatePlayerName={(name: string) => {
       dispatch(updatePlayerName({ playerNumber: PlayerNumber.PLAYER2, name }));
     }} />
-    <Button disabled={player1.state === PlayerState.NOT_FINISHED} rounded>Register match</Button>
+    <Button icon="pi pi-fw pi-save" disabled={player1.state === PlayerState.NOT_FINISHED} rounded>
+      Register match</Button>
   </div>
 }
