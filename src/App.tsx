@@ -11,7 +11,7 @@ function App() {
   return (
 
     <HashRouter
-    basename='/pingpoing-rank'
+   
 
     >
        
