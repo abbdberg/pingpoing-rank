@@ -1,53 +1,49 @@
 import { useState } from 'react'
 
-import HomeIcon from '@mui/icons-material/Home';
-import ExploreIcon from '@mui/icons-material/Explore';
-import SettingsIcon from '@mui/icons-material/Settings';
-
-import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 import { History } from './components/History/History';
 import { Stats } from './components/Stats/Stats';
 import { Match } from './components/Match/Match';
 import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Menubar } from 'primereact/menubar';
+import { Menu } from 'primereact/menu';
+import { TabMenu } from 'primereact/tabmenu';
 
 
 function App() {
 
   return (
     <BrowserRouter>
-      <div style={{
-        display: "flex",
-        height: "100%",
-        flexDirection: "column"
-      }}>
-        <Box sx={{ flexGrow: 1 }}>
-          <Routes>
-            <Route path="/" element={<Match />} />
-            <Route path="/stats" element={<Stats />} />
-            <Route path="/history" element={<History />} />
-          </Routes>
-        </Box>
+      <div className='main-content'>
+        <Routes>
+          <Route path="/" element={<Match />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </div>
+      {/* <div className='navbar'> */}
         <BottomNav />
-      </div ></BrowserRouter>
+      {/* </div> */}
+
+    </BrowserRouter>
 
   );
 }
 
 function BottomNav() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const handleChange = (_, newValue:unknown)  => {
-    navigate(newValue as string);
-  };
+  // const location = useLocation();
 
   return (
-    <Box>
-      <BottomNavigation showLabels value={location.pathname} onChange={handleChange}>
-        <BottomNavigationAction label="Match" value="/" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Stats" value="/stats" icon={<ExploreIcon />} />
-        <BottomNavigationAction label="History" value="/history" icon={<SettingsIcon />} />
-      </BottomNavigation>
-    </Box>
+    <TabMenu
+    
+    defaultChecked
+      model={[
+        { label: 'Match', icon: 'pi pi-fw pi-home', command: () => navigate('/') },
+        { label: 'Stats', icon: 'pi pi-fw pi-chart-line', command: () => navigate('/stats') },
+        { label: 'History', icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
+
+      ]}
+    />
   );
 }
 

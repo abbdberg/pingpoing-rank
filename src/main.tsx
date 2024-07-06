@@ -2,30 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './main.css'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux'
+import { PrimeReactProvider } from 'primereact/api';
 import { store } from './store/store.ts'
-import CssBaseline from '@mui/material/CssBaseline';
 
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    // primary: {
-    //   main: '#ff4400',
-    // },
-    // secondary: {
-    //   main: '#00ff44',
-    // },
-  },
-});
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import 'primeicons/primeicons.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+      <PrimeReactProvider>
         <App />
-      </ThemeProvider>
+      </PrimeReactProvider>
+
     </Provider>
 
   </React.StrictMode>,
