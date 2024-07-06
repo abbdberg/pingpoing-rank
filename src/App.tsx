@@ -39,8 +39,8 @@ function BottomNav() {
     <TabMenu
       model={[
         { label: 'Match', icon: 'pi pi-fw pi-home', command: () => navigate('/') },
-        { label: 'Ranking', icon: 'pi pi-fw pi-chart-line', command: () => navigate('/ranking') },
-        { label: 'History', icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
+        { label: 'Rank', icon: 'pi pi-fw pi-chart-line', command: () => navigate('/ranking') },
+        { label: 'Hist', icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
         { label: 'User', icon: 'pi pi-fw pi-user', command: () => navigate('/user') },
 
       ]}
