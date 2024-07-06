@@ -45,6 +45,8 @@ export const History = () => {
   };
 
   return (
+    <>
+    <div className="back-title">Historic matches</div>
     <DataTable value={matchHistoryData} paginator rows={10} dataKey="date">
       <Column field="date" header="Date" />
       <Column field="time" header="Time" />
@@ -52,6 +54,8 @@ export const History = () => {
       <Column field="loser" header="Loser" />
       <Column body={renderScore} header="Score" />
     </DataTable>
+    </>
+    
   );
 };
 

@@ -10,7 +10,9 @@ export const Match = () => {
   const { player1, player2 } = useSelector((state: RootState) => state.players);
   const dispatch = useDispatch();
 
-  return <div style={{alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
+  return <>
+  <div className="back-title">Match</div>
+  <div style={{alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
     <PlayerCmp {...player1} updatePlayerName={(name: string) => {
       dispatch(updatePlayerName({ playerNumber: PlayerNumber.PLAYER1, name }));
     }} />
@@ -20,5 +22,5 @@ export const Match = () => {
     }} />
     <Button icon="pi pi-fw pi-save" disabled={player1.state === PlayerState.NOT_FINISHED} rounded>
       Register match</Button>
-  </div>
+  </div></>
 }

@@ -19,12 +19,16 @@ const Ranking = () => {
   };
 
   return (
-    <DataTable value={fakePlayers}>
+    <>
+     <div className="back-title">Ranking</div>
+     <DataTable value={fakePlayers}>
       <Column field="rank" header="Rank"></Column>
       <Column field="name" header="Player Name"></Column>
       <Column field="eloScore" header="Elo Score"></Column>
       <Column field="eloHistory" header="Elo History" body={eloHistoryTemplate}></Column>
     </DataTable>
+    </>
+   
   );
 };
 

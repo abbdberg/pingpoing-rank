@@ -40,7 +40,7 @@ function BottomNav() {
   return (
     <TabMenu
       model={[
-        { icon: 'pi pi-fw pi-home', command: () => navigate('/') },
+        { icon: 'pi pi-fw pi-home', command: () => navigate('/')},
         {  icon: 'pi pi-fw pi-chart-line', command: () => navigate('/ranking') },
         { icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
         {  icon: 'pi pi-fw pi-user', command: () => navigate('/user') },
