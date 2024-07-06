@@ -14,7 +14,7 @@ export const Match = () => {
     <PlayerCmp {...player1} updatePlayerName={(name: string) => {
       dispatch(updatePlayerName({ playerNumber: PlayerNumber.PLAYER1, name }));
     }} />
-  <h1 className="score">{player1.points} : {player2.points}</h1>
+  <h1 className="score">{String(player1.points).padStart(2, '0')} : {String(player2.points).padStart(2, '0')}</h1>
     <PlayerCmp {...player2} updatePlayerName={(name: string) => {
       dispatch(updatePlayerName({ playerNumber: PlayerNumber.PLAYER2, name }));
     }} />
