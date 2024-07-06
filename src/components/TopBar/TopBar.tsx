@@ -5,8 +5,8 @@ export const TopBar = () => <AppBar position="static">
   {/* <IconButton edge="start" color="inherit" aria-label="menu">
     <MenuIcon />
   </IconButton> */}
-  <Typography variant="h6" color="inherit">
-    ABB Ping Pong!
+  <Typography variant="body1" color="inherit">
+    Be the ping to my pong
   </Typography>
 </Toolbar>
 </AppBar>

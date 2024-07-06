@@ -6,6 +6,14 @@ export enum PlayerNumber {
   PLAYER2 = 'player2'
 }
 
+export enum PlayerState {
+  WINNER = 'winner',
+  LOSER = 'loser',
+  NOT_FINISHED = 'not_finished'
+}
+
+export interface UpdatePlayerPayload extends Omit<Player, 'state'>{}
+
 export interface PlayerNamePayload {
   playerNumber: PlayerNumber;
   name: string;
@@ -17,19 +25,25 @@ export interface PlayersState {
 }
 
 const initialState: PlayersState = {
-  player1: { name: 'Player 1', points: 11 },
-  player2: { name: 'Player 2', points: 11 }
+  player1: { name: 'Player 1', points: 11, state: PlayerState.NOT_FINISHED},
+  player2: { name: 'Player 2', points: 11, state: PlayerState.NOT_FINISHED}
 };
 
 export const playersSlice = createSlice({
   name: 'players',
   initialState,
   reducers: {
-    updatePlayerScore: (state, action: PayloadAction<Player>) => {
-      if (state.player1.name === action.payload.name) {
-        state.player1.points = action.payload.points;
-      } else if (state.player2.name === action.payload.name) {
-        state.player2.points = action.payload.points;
+    updatePlayerScore: (state, action: PayloadAction<UpdatePlayerPayload>) => {
+      const currentPlayer = state.player1.name === action.payload.name ? state.player1 : state.player2;
+      const otherPlayer = state.player1.name === action.payload.name ? state.player2 : state.player1;
+      currentPlayer.points = action.payload.points;
+      const players = [currentPlayer, otherPlayer].sort((a, b) => b.points - a.points);
+      if(players[0].points >= 11 && players[0].points - players[1].points >= 2) {
+        players[0].state = PlayerState.WINNER;
+        players[1].state = PlayerState.LOSER;
+      } else {
+        players[0].state = PlayerState.NOT_FINISHED;
+        players[1].state = PlayerState.NOT_FINISHED;
       }
     },
     updatePlayerName: (state, action: PayloadAction<PlayerNamePayload>) => {

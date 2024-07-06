@@ -5,7 +5,6 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
-import { TopBar } from './components/TopBar/TopBar';
 import { History } from './components/History/History';
 import { Stats } from './components/Stats/Stats';
 import { Match } from './components/Match/Match';
@@ -21,7 +20,6 @@ function App() {
         height: "100%",
         flexDirection: "column"
       }}>
-        <TopBar />
         <Box sx={{ flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Match />} />
