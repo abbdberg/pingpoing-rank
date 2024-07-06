@@ -2,7 +2,7 @@
 import { PlayerCmp } from "./PlayerCmp";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { PlayerNumber, updatePlayerName } from "../../store/playersSlice";
+import { PlayerNumber, PlayerState, updatePlayerName } from "../../store/playersSlice";
 import { Button } from "primereact/button";
 
 export const Match = () => {
@@ -14,10 +14,10 @@ export const Match = () => {
     <PlayerCmp {...player1} updatePlayerName={(name: string) => {
       dispatch(updatePlayerName({ playerNumber: PlayerNumber.PLAYER1, name }));
     }} />
-
+  <h1 className="score">{player1.points} : {player2.points}</h1>
     <PlayerCmp {...player2} updatePlayerName={(name: string) => {
       dispatch(updatePlayerName({ playerNumber: PlayerNumber.PLAYER2, name }));
     }} />
-    <Button rounded>Register match</Button>
+    <Button disabled={player1.state === PlayerState.NOT_FINISHED} rounded>Register match</Button>
   </div>
 }

@@ -1,12 +1,10 @@
 import { Player } from "../../models/Player";
 import { useDispatch } from "react-redux";
 import { PlayerState, updatePlayerScore } from "../../store/playersSlice";
-import { Chip } from "primereact/chip";
-import { AutoComplete } from "primereact/autocomplete";
-import { Badge } from "primereact/badge";
+
 import { Button } from "primereact/button";
 import { ButtonGroup } from "primereact/buttongroup";
-import { Card } from "primereact/card";
+
 import { Dropdown } from "primereact/dropdown";
 
 const fakePlaysers = "GracefulAdvance, HarmonicGrace, VibrantFashion, ScoutSmart, SmokyBlast, EyedManiacal, MutantElectric, SneakyVagabond, SkillWeaver, SniperNest, MurderousSquirrel, MoonYodeler, EmotiveDeer, ThumperHare, HooliganFlood, AimHawk, MysteriousLure, HardNut, ThrillingUndead, MysterySleuth";
@@ -31,15 +29,12 @@ export const PlayerCmp = (props: PlayerProps) => {
     <div className="player-card" style={{ backgroundColor }}
     >
       <div>
-        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
-          <i className="pi pi-shopping-cart text-blue-500 text-xl"></i>
-        </div>
         {props.state === PlayerState.WINNER && <span style={{ margin: 10 }}>{"🏆"} </span>}
         {props.state === PlayerState.LOSER && <span style={{ margin: 10 }}>{"😔"}</span>}
         {props.state === PlayerState.NOT_FINISHED && <span style={{ margin: 10 }}>{"⏳"}</span>}
 
         <Dropdown
-          editable
+        placeholder="Select a player"
           options={fakePlaysers.split(',').map((option) => option.trim())}
           value={props.name}
           onChange={(e) => {
@@ -48,7 +43,6 @@ export const PlayerCmp = (props: PlayerProps) => {
         // renderInput={(params) => <TextField {...params} label="Name" />}
         />
       </div>
-      <h1>{props.points}</h1>
       <ButtonGroup>
         <Button severity="secondary" rounded onClick={() => handleSliderChange(11)}>11</Button>
         <Button severity="secondary" rounded onClick={() => handleSliderChange(0)}>0</Button>

@@ -12,7 +12,9 @@ import { TabMenu } from 'primereact/tabmenu';
 function App() {
 
   return (
+
     <BrowserRouter>
+       
       <div className='main-content'>
         <Routes>
           <Route path="/" element={<Match />} />
@@ -21,7 +23,7 @@ function App() {
         </Routes>
       </div>
       {/* <div className='navbar'> */}
-        <BottomNav />
+      <BottomNav />
       {/* </div> */}
 
     </BrowserRouter>
@@ -35,7 +37,6 @@ function BottomNav() {
 
   return (
     <TabMenu
-    
     defaultChecked
       model={[
         { label: 'Match', icon: 'pi pi-fw pi-home', command: () => navigate('/') },

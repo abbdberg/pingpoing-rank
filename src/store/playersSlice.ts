@@ -25,8 +25,8 @@ export interface PlayersState {
 }
 
 const initialState: PlayersState = {
-  player1: { name: 'Player 1', points: 11, state: PlayerState.NOT_FINISHED},
-  player2: { name: 'Player 2', points: 11, state: PlayerState.NOT_FINISHED}
+  player1: { name: '', points: 11, state: PlayerState.NOT_FINISHED},
+  player2: { name: '', points: 11, state: PlayerState.NOT_FINISHED}
 };
 
 export const playersSlice = createSlice({
