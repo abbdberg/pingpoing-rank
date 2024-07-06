@@ -1,7 +1,7 @@
 import { History } from './components/History/History';
 import Ranking from './components/Ranking/Ranking';
 import { Match } from './components/Match/Match';
-import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { TabMenu } from 'primereact/tabmenu';
 import User from './components/User/User';
 
@@ -10,12 +10,14 @@ function App() {
 
   return (
 
-    <BrowserRouter
+    <HashRouter
     basename='/pingpoing-rank'
+
     >
        
       <div className='main-content'>
-        <Routes>
+        <Routes
+        >
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/history" element={<History />} />
           <Route path="/user" element={<User />} />
@@ -26,7 +28,7 @@ function App() {
       <BottomNav />
       {/* </div> */}
 
-    </BrowserRouter>
+    </HashRouter>
 
   );
 }
