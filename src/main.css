@@ -38,7 +38,7 @@ h1.score {
 }
 
 .player-card {
-  border-radius: 10px!important;
+  border-radius: 15px;
   margin: 8px;
   padding: 16px;
   display: flex;

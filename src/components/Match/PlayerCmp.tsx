@@ -19,11 +19,11 @@ export const PlayerCmp = (props: PlayerProps) => {
     dispatch(updatePlayerScore({ name: props.name, points: newValue }));
   };
 
-  let backgroundColor = 'rgba(255,255,255, 0.7)';
+  let backgroundColor = 'rgba(255,255,255, 0.5)';
   if (props.state === PlayerState.WINNER) {
-    backgroundColor = 'rgba(76,175,80, 0.7)';
+    backgroundColor = 'rgba(76,175,80, 0.5)';
   } else if (props.state === PlayerState.LOSER) {
-    backgroundColor = 'rgba(244,67,54, 0.7)';
+    backgroundColor = 'rgba(244,67,54, 0.5)';
   }
   return <div>
     <div className="player-card" style={{ backgroundColor }}
@@ -44,10 +44,10 @@ export const PlayerCmp = (props: PlayerProps) => {
         />
       </div>
       <ButtonGroup>
-        <Button severity="secondary" rounded onClick={() => handleSliderChange(11)}>11</Button>
-        <Button severity="secondary" rounded onClick={() => handleSliderChange(0)}>0</Button>
-        <Button severity="secondary" rounded onClick={() => handleSliderChange(props.points - 1)}>-1</Button>
-        <Button severity="secondary" rounded onClick={() => handleSliderChange(props.points + 1)}>+1</Button>
+        <Button disabled={!props.name} severity="secondary" rounded onClick={() => handleSliderChange(11)}>11</Button>
+        <Button disabled={!props.name} severity="secondary" rounded onClick={() => handleSliderChange(0)}>0</Button>
+        <Button disabled={!props.name} severity="secondary" rounded onClick={() => handleSliderChange(props.points - 1)}>-1</Button>
+        <Button disabled={!props.name} severity="secondary" rounded onClick={() => handleSliderChange(props.points + 1)}>+1</Button>
       </ButtonGroup>
 
     </div>

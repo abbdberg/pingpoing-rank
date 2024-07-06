@@ -1,25 +1,25 @@
-import { useState } from 'react'
-
 import { History } from './components/History/History';
-import { Stats } from './components/Stats/Stats';
+import Ranking from './components/Ranking/Ranking';
 import { Match } from './components/Match/Match';
 import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { Menubar } from 'primereact/menubar';
-import { Menu } from 'primereact/menu';
 import { TabMenu } from 'primereact/tabmenu';
+import User from './components/User/User';
 
 
 function App() {
 
   return (
 
-    <BrowserRouter>
+    <BrowserRouter
+    basename='/pingpoing-rank'
+    >
        
       <div className='main-content'>
         <Routes>
-          <Route path="/" element={<Match />} />
-          <Route path="/stats" element={<Stats />} />
+          <Route path="/ranking" element={<Ranking />} />
           <Route path="/history" element={<History />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/" element={<Match />} />
         </Routes>
       </div>
       {/* <div className='navbar'> */}
@@ -37,11 +37,11 @@ function BottomNav() {
 
   return (
     <TabMenu
-    defaultChecked
       model={[
         { label: 'Match', icon: 'pi pi-fw pi-home', command: () => navigate('/') },
-        { label: 'Stats', icon: 'pi pi-fw pi-chart-line', command: () => navigate('/stats') },
+        { label: 'Ranking', icon: 'pi pi-fw pi-chart-line', command: () => navigate('/ranking') },
         { label: 'History', icon: 'pi pi-fw pi-calendar', command: () => navigate('/history') },
+        { label: 'User', icon: 'pi pi-fw pi-user', command: () => navigate('/user') },
 
       ]}
     />
